@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	if direction_x == 0 && direction_y == 0:
 		animated_sprite_2d.play("idle")
 	else:
-		animated_sprite_2d.play("move")
+		animated_sprite_2d.play("walk")
 	
 	if direction_x:
 		velocity.x = direction_x * SPEED
