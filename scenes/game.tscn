@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_byd1n"]
 [ext_resource type="PackedScene" uid="uid://c48l2nyxxxtml" path="res://scenes/spikes.tscn" id="5_6mwb1"]
 [ext_resource type="PackedScene" uid="uid://bgqqfjumrcf5o" path="res://scenes/killzone.tscn" id="5_rlis3"]
-[ext_resource type="PackedScene" uid="uid://btegj4t2mup3r" path="res://scenes/moving_spike.tscn" id="7_pjhru"]
-[ext_resource type="PackedScene" uid="uid://brgd1i0tsepsw" path="res://scenes/snake.tscn" id="8_hptrj"]
+[ext_resource type="PackedScene" path="res://scenes/moving_spike.tscn" id="7_pjhru"]
+[ext_resource type="PackedScene" path="res://scenes/snake.tscn" id="8_hptrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2l3v"]
 texture = ExtResource("2_ht11h")
@@ -254,6 +254,21 @@ sources/1 = SubResource("TileSetAtlasSource_m32yy")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vstk3"]
 
+[sub_resource type="Animation" id="Animation_026n3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(450, -45)]
+}
+
 [sub_resource type="Animation" id="Animation_jibhv"]
 resource_name = "move"
 loop_mode = 2
@@ -268,21 +283,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(450, -45), Vector2(450, -262)]
-}
-
-[sub_resource type="Animation" id="Animation_026n3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(450, -45)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_372gm"]
