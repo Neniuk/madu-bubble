@@ -7,9 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c48l2nyxxxtml" path="res://scenes/spikes.tscn" id="5_6mwb1"]
 [ext_resource type="PackedScene" path="res://scenes/moving_spike.tscn" id="7_pjhru"]
 [ext_resource type="PackedScene" path="res://scenes/snake.tscn" id="8_hptrj"]
-[ext_resource type="PackedScene" uid="uid://bgqqfjumrcf5o" path="res://scenes/killzone.tscn" id="5_rlis3"]
-[ext_resource type="PackedScene" uid="uid://btegj4t2mup3r" path="res://scenes/moving_spike.tscn" id="7_pjhru"]
-[ext_resource type="PackedScene" uid="uid://brgd1i0tsepsw" path="res://scenes/snake.tscn" id="8_hptrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2l3v"]
 texture = ExtResource("2_ht11h")
