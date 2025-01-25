@@ -6,6 +6,11 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func die():
+	print("is this function called")
+	#velocity = Vector2.ZERO
+	animated_sprite_2d.play("die")
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -39,5 +44,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = direction_y * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		
+
 
 	move_and_slide()
