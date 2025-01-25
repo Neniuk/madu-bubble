@@ -144,7 +144,7 @@ script = ExtResource("1_srbb2")
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_gys5o")
 animation = &"die"
-autoplay = "die"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -30)
