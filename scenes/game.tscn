@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cdwgs4tos8kjg"]
+[gd_scene load_steps=19 format=4 uid="uid://cdwgs4tos8kjg"]
 
 [ext_resource type="PackedScene" uid="uid://bxrq0wr8dwtcj" path="res://scenes/player.tscn" id="1_gypp5"]
 [ext_resource type="Texture2D" uid="uid://b6q5r0yf2n8io" path="res://assets/sprites/actual-tilemap.png" id="2_ht11h"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_byd1n"]
 [ext_resource type="PackedScene" uid="uid://c48l2nyxxxtml" path="res://scenes/spikes.tscn" id="5_6mwb1"]
 [ext_resource type="PackedScene" uid="uid://bgqqfjumrcf5o" path="res://scenes/killzone.tscn" id="5_rlis3"]
+[ext_resource type="PackedScene" uid="uid://btegj4t2mup3r" path="res://scenes/moving_spike.tscn" id="7_pjhru"]
+[ext_resource type="PackedScene" uid="uid://brgd1i0tsepsw" path="res://scenes/snake.tscn" id="8_hptrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2l3v"]
 texture = ExtResource("2_ht11h")
@@ -252,6 +254,43 @@ sources/1 = SubResource("TileSetAtlasSource_m32yy")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vstk3"]
 
+[sub_resource type="Animation" id="Animation_jibhv"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(450, -45), Vector2(450, -262)]
+}
+
+[sub_resource type="Animation" id="Animation_026n3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(450, -45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_372gm"]
+_data = {
+"RESET": SubResource("Animation_026n3"),
+"move": SubResource("Animation_jibhv")
+}
+
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -299,3 +338,15 @@ position = Vector2(398, -126)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 186)
 shape = SubResource("WorldBoundaryShape2D_vstk3")
+
+[node name="Moving_spike" parent="." instance=ExtResource("7_pjhru")]
+position = Vector2(450, -45)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Moving_spike"]
+libraries = {
+"": SubResource("AnimationLibrary_372gm")
+}
+autoplay = "move"
+
+[node name="snake" parent="." instance=ExtResource("8_hptrj")]
+position = Vector2(54, -128)
