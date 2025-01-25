@@ -1,14 +1,17 @@
 extends Node
 
-const BUBBLE_INIT_SIZE: int = 500
-var bubble_size: int = 0
+const BUBBLE_INIT_HEALTH: int = 500
+var bubble_health: int = 0
 
 func _ready() -> void:
-	bubble_size = BUBBLE_INIT_SIZE
-	print("Bubble size: " + str(bubble_size))
+	bubble_health = BUBBLE_INIT_HEALTH
+	print("Bubble health: " + str(bubble_health))
 
-func increment_bubble_size(sizeIncrement: int):
-	bubble_size += sizeIncrement
+func increment_bubble_health(healthIncrement: int):
+	bubble_health += healthIncrement
 
-func get_bubble_size():
-	return bubble_size
+func get_bubble_health():
+	return bubble_health
+
+func set_bubble_health(health: int):
+	bubble_health = health
