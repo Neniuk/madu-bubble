@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cdwgs4tos8kjg"]
+[gd_scene load_steps=19 format=4 uid="uid://cdwgs4tos8kjg"]
 
 [ext_resource type="PackedScene" uid="uid://bxrq0wr8dwtcj" path="res://scenes/player.tscn" id="1_gypp5"]
 [ext_resource type="Texture2D" uid="uid://b6q5r0yf2n8io" path="res://assets/sprites/actual-tilemap.png" id="2_ht11h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c48l2nyxxxtml" path="res://scenes/spikes.tscn" id="5_6mwb1"]
 [ext_resource type="PackedScene" uid="uid://bgqqfjumrcf5o" path="res://scenes/killzone.tscn" id="5_rlis3"]
 [ext_resource type="PackedScene" uid="uid://btegj4t2mup3r" path="res://scenes/moving_spike.tscn" id="7_pjhru"]
+[ext_resource type="PackedScene" uid="uid://brgd1i0tsepsw" path="res://scenes/snake.tscn" id="8_hptrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2l3v"]
 texture = ExtResource("2_ht11h")
@@ -346,3 +347,6 @@ libraries = {
 "": SubResource("AnimationLibrary_372gm")
 }
 autoplay = "move"
+
+[node name="snake" parent="." instance=ExtResource("8_hptrj")]
+position = Vector2(54, -128)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://brgd1i0tsepsw"]
+
+[ext_resource type="PackedScene" uid="uid://bgqqfjumrcf5o" path="res://scenes/killzone.tscn" id="1_cyy8s"]
+[ext_resource type="Script" path="res://scripts/snake.gd" id="1_fevbg"]
+[ext_resource type="Texture2D" uid="uid://d3ku7o56m8bm7" path="res://assets/sprites/fish.png" id="2_htu23"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hx6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t66ea"]
+atlas = ExtResource("2_htu23")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7g2u"]
+atlas = ExtResource("2_htu23")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnvc3"]
+atlas = ExtResource("2_htu23")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhpco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t66ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7g2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnvc3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="snake" type="Node2D"]
+script = ExtResource("1_fevbg")
+
+[node name="Killzone" parent="." instance=ExtResource("1_cyy8s")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CapsuleShape2D_3hx6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+sprite_frames = SubResource("SpriteFrames_uhpco")
+autoplay = "default"
+frame_progress = 0.36454
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -23)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 25)
