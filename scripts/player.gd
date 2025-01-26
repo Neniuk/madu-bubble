@@ -3,13 +3,21 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+@onready var progress_bar: ProgressBar = $"../GameManager/ProgressBar"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 func die():
 	print("is this function called")
 	#velocity = Vector2.ZERO
 	animated_sprite_2d.play("die")
+
+func _process(delta: float) -> void:
+	var camera = get_node("/root/Game/Player/Camera2D")
+	if camera:
+		var offset = Vector2(-500, -300)  # Adjust this to position the bar inside the screen
+		progress_bar.global_position = camera.global_position + offset
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
