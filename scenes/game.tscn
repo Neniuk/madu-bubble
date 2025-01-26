@@ -239,6 +239,8 @@ max_value = 500.0
 value = 500.0
 script = ExtResource("2_e8awl")
 
+[node name="HealthTimer" type="Timer" parent="GameManager"]
+
 [node name="Tiles" type="Node" parent="."]
 
 [node name="Midground" type="TileMapLayer" parent="Tiles"]

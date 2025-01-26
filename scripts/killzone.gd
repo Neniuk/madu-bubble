@@ -4,6 +4,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	print("Died")
+	if body.is_in_group("tiles"):
+		print("touch tiles")
 	if body.has_method("die"):
 		print("does this work")
 		body.die()
