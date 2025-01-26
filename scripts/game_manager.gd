@@ -16,7 +16,15 @@ func increment_bubble_health(healthIncrement: int):
 	bubble_health += healthIncrement
 	progress_bar.value = bubble_health
 	
-
+func decrement_bubble_health():
+	if bubble_health > 0:
+		bubble_health -= 10
+		progress_bar.value = bubble_health
+		print("Bubble health: " + str(bubble_health))
+		if bubble_health <= 0:
+			print("dead")
+	else:
+		health_timer.stop()
 func get_bubble_health():
 	return bubble_health
 
