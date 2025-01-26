@@ -1,5 +1,6 @@
 extends Node
 @onready var player: CharacterBody2D = $"../Player"
+@onready var midground: TileMapLayer = $"../Tiles/Midground"
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var health_timer: Timer = $HealthTimer
@@ -52,14 +53,14 @@ func _on_health_timer_timeout():
 		decrement_bubble_health()
 
 func _on_player_body_entered(body: Node2D):
-	if body.is_in_group("tile"):
+	if body.is_in_group("TileMapLayer"):
 		if not is_taking_damage:
 			is_taking_damage = true
 			health_timer.start()
 			print("Started taking damage.")
 
 func _on_player_body_exited(body: Node2D):
-	if body.is_in_group("tile"):
+	if body.is_in_group("TileMapLayer"):
 		is_taking_damage = false
 		health_timer.stop()
 		print("Stopped taking damage.")
